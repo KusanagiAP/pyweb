@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title%} Add Product {% endblock %}
+{% block content %}
+
+<video class = "bgVideo" id="bgVideo" autoplay loop muted playsinline >
+  <source src="https://video.wixstatic.com/video/11062b_6a134fc09ea34833a17d295e295ab517/1080p/mp4/file.mp4" type="video/mp4"/>
+</video>
+  <form method="post" class="border">
+      <div class="form-group" style="color:#FFFFFE;">
+        Product's name:
+        <input type="text" maxlength = "30" id="product" name="product" placeholder="Name">
+      <div class="form-group" style="color:#FFFFFE;"><br>
+        Product's price:
+        <input type="number" min = "1" max = "2147483647"id="price" name="price" placeholder="Price">$
+      </div><br>
+      <button type="submit" class="btn btn-primary" id="Add">Add
+      </button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+    crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>{%block title %}{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+<body>
+        
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/home">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="/products">Products</a>
+              <a class="nav-link" href="/add">Add Product</a>
+            </div>
+          </div>
+        </div>
+      </nav> 
+      {% with messages = get_flashed_messages(with_categories=true) %} 
+      {% if messages %}
+       {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="alert alert-danger alter-dismissable fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss = "alert"></button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" aria-label ="Close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
+        
+        <style>
+        .bgVideo {
+          object-fit: cover;
+          width: 100vw;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index:-1;
+        }
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          width: 300px;
+          min-height:100px;
+          margin-right: 10px;
+          margin-bottom:10px;
+          text-align: center;
+          font-family: arial;
+          float: left;
+          padding:5px;
+          background-color:rgba(255,255,255,0.7);
+          font-size:22px;
+        }
+        
+        .price {
+          color: grey;
+          font-size: 16px;
+        }
+        .card_list{
+          overflow:auto;
+          height:500px;
+          padding-left:80px;
+        }
+        #search{
+          width:25%;
+          margin:auto;
+          margin-top:15px;
+        }
+        #search_button{
+          margin:5px 0 5px 47%;
+        }
+        .border{
+          width:60%;
+          padding:10px;
+          margin:auto;
+          margin-top:100px;
+        }
+        #Add{
+          width:150px;
+          height:50px;
+          margin-left:300px;
+        }
+      </style>
+        
+     <h1>{% block content %}{% endblock %}</h1>
+
+</body>
+</html>

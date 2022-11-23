@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title%} Products {% endblock %}
+{% block content %}
+<video class = "bgVideo" id="bgVideo" autoplay loop muted playsinline >
+    <source src="https://video.wixstatic.com/video/11062b_6a134fc09ea34833a17d295e295ab517/1080p/mp4/file.mp4" type="video/mp4"/>
+ </video>
+<form method = "post" id="form_search">
+    <div class="form-group">
+        <label for="search"></label>
+        <input type="text" id = "search" name = "search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" class="btn btn-outline-primary" id="search_button">Search</button>
+    </div>
+  <div class="card_list">
+  {%if result == None %}
+  {% for product in products %}
+    <div class="card">
+    <p>{{product[0]}}</p>
+    <p class="price">{{product[1]}}$</p>
+    </div>
+  {% endfor %}
+  {% else %}
+  <div class="card">
+    <h1>{{result[0]}}</h1>
+    <p class="price">{{result[1]}}$</p>
+  </div>
+  {% endif %}
+
+  </div>
+{% endblock %}
